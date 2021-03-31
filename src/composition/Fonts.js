@@ -14,11 +14,11 @@ const Fonts = ({searchValue}) => {
     }
     
     loadFonts();
-  }, []);
+  }, [URL]);
 
   const filteredData  = fonts.filter((font) => font.family.toLowerCase().includes(searchValue.toLowerCase()))
 
-  const displayFonts = filteredData.map((font) => (<li>{font.family}</li>))
+  const displayFonts = filteredData.map((font) => (<div key={font.family}><h3>{font.family}</h3></div>))
 
   return(
     <li>{displayFonts}</li>

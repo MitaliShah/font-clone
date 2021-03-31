@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './App.css';
 import Fonts from "./composition/Fonts";
 
@@ -12,7 +12,7 @@ function App() {
   }
 
   return(
-    <React.Fragment>      
+    <React.Fragment>
       <form>
         <label htmlFor="search">
           <input
