@@ -5,16 +5,10 @@ import Header from "./composition/Header";
 
 function App() {
 
-  // const [searchValue, setSearchValue] = useState("")
-
-  // const handleChange = (e) => {
-  //   setSearchValue(e.target.value)
-  //   console.log(searchValue)
-  // }
-
   const initialFormState = {
     searchValue: "",
-    customText: ""
+    customText: "",
+    fontSizeValue: "24"
   };
 
   const [formData, setFormData] = useState({...initialFormState})
@@ -25,11 +19,10 @@ function App() {
       [target.name]: target.value,
     });
   };
-  console.log(`search`,formData.searchValue)
-  console.log(`custom`,formData.customText)
+
   return(
     <React.Fragment>
-      <main>        
+      <main>
         <Header/>
         <form>
           <label htmlFor="search">
@@ -52,10 +45,24 @@ function App() {
               placeholder="Custom Text"
             />
           </label>
+          <label htmlFor="fontSizeValue">
+            <select
+              id="fontSizeValue"
+              name="fontSizeValue"
+              onChange={handleChange}
+              value={formData.fontSizeValue}
+            >
+              <option value="">-- Select Font Size --</option>
+              <option value="20">20px</option>
+              <option value="24">24px</option>
+              <option value="32">32px</option>
+              <option value="40">40px</option>
+            </select>
+          </label>
         </form>
       </main>
       
-      <Fonts searchValue={formData.searchValue} customText={formData.customText}/>
+      <Fonts searchValue={formData.searchValue} customText={formData.customText} fontSizeValue={formData.fontSizeValue}/>
     </React.Fragment>
   )
 }

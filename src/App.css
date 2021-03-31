@@ -58,6 +58,7 @@ select {
   -webkit-appearance: none;
   text-align: center;
   flex: 1;
+  color: grey;
 }
 
 input:focus,

@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react"
 
-const Fonts = ({searchValue, customText}) => {
-
-  console.log(`search`,searchValue)
-  console.log(`custom`,customText)
+const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
   const [fonts, setFonts] = useState([]);
-  //const [customText, setCustomText] = useState("Then come the night of the first falling star.")
 
   const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}`;
 
@@ -22,7 +18,6 @@ const Fonts = ({searchValue, customText}) => {
 
   const filteredData  = fonts.filter((font) => font.family.toLowerCase().includes(searchValue.toLowerCase()))
 
-  //const customTextRender = !customText ? "<p>Then come the night of the first falling star.</p>" : customText
   const displayFonts = filteredData.map((font) => (
     <div key={font.family} className="font-card">
       <div className="font-card-info">
@@ -36,21 +31,17 @@ const Fonts = ({searchValue, customText}) => {
         <p>Christian Robertson</p>
       </div>
 
-      <div className="font-preview">        
-        <p className="customText">{customText ? customText : "Then come the night of the first falling star."}</p>
+      <div className="font-preview">
+        <p style={{fontSize: `${fontSizeValue}px`}} className="customText">{customText ? customText : "Then come the night of the first falling star."}</p>
       </div>
     </div>
   ))
 
-  
-
   return(
     <React.Fragment>
-      {/* <div>{displayFonts}</div> */}
       <section  className="font-card-main-container">
         {Object.values(displayFonts)}
       </section>
-      
     </React.Fragment>
   )
 }
