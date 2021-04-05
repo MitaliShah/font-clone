@@ -8,7 +8,8 @@ function App() {
   const initialFormState = {
     searchValue: "",
     customText: "",
-    fontSizeValue: "24"
+    fontSizeValue: "24",
+    mode: "light"
   };
 
   const [formData, setFormData] = useState({...initialFormState})
@@ -59,10 +60,41 @@ function App() {
               <option value="40">40px</option>
             </select>
           </label>
+          <fieldset>
+          <legend></legend>
+          <label htmlFor="dark">
+            
+            <input
+              id="dark"
+              type="radio"
+              name="mode"
+              onChange={handleChange}
+              value="dark"
+              checked={formData.mode === "dark"}
+            />
+          </label>
+          <label htmlFor="light">
+            
+            <input
+              id="light"
+              type="radio"
+              name="mode"
+              onChange={handleChange}
+              value="light"
+              checked={formData.mode === "light"}
+            />
+          </label>
+        </fieldset>
         </form>
-      </main>
       
-      <Fonts searchValue={formData.searchValue} customText={formData.customText} fontSizeValue={formData.fontSizeValue}/>
+      
+      <Fonts 
+        searchValue={formData.searchValue} 
+        customText={formData.customText} 
+        fontSizeValue={formData.fontSizeValue}
+        mode={formData.mode}
+      />
+      </main>
     </React.Fragment>
   )
 }

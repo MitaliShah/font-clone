@@ -4,9 +4,19 @@
   box-sizing: border-box;
 }
 
-body {
-  max-width: 90%;
+body, .root{
+  max-width: 100%;
   margin: 0 auto;
+}
+
+fieldset {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dark{
+  margin-right: 10px;
 }
 
 /**Header**/
@@ -114,6 +124,15 @@ select {
   place-items: center;
 }
 
+/*Form*/
+
+form{
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 600px) {
   .header-nav{
     display: none;
@@ -121,5 +140,23 @@ select {
 
   header{
     text-align: center;
+  }
+
+  form{
+    display: flex;
+    flex-wrap: wrap;    
+  }
+
+  input[type="text"] {
+    border: none;
+  }
+
+  #customText{
+    border-top:1px solid grey;
+    padding-top: 5px;
+  }
+
+  select{
+    border-top: 1px solid grey;
   }
 }

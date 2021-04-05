@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react"
 
-const Fonts = ({searchValue, customText, fontSizeValue}) => {
+const Fonts = ({searchValue, customText, fontSizeValue, mode}) => {
 
   const [fonts, setFonts] = useState([]);
 
   const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}`;
 
+  // Load fonts from the google fnot API
+  
   useEffect(() => {
     async function loadFonts() {
       const response = await fetch(URL);
@@ -16,8 +18,10 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
     loadFonts();
   }, [URL]);
 
+  // Filter fonts based on search
   const filteredData  = fonts.filter((font) => font.family.toLowerCase().includes(searchValue.toLowerCase()))
 
+  // Render filtered fonts
   const displayFonts = filteredData.map((font) => (
     <div key={font.family} className="font-card">
       <div className="font-card-info">
@@ -36,7 +40,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
       </div>
     </div>
   ))
-
+  
   return(
     <React.Fragment>
       <section  className="font-card-main-container">
