@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
 
-const Fonts = ({searchValue, customText, fontSizeValue, mode}) => {
+const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
   const [fonts, setFonts] = useState([]);
 
   const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}`;
 
-  // Load fonts from the google fnot API
+  // Load fonts from the google font API
   
   useEffect(() => {
     async function loadFonts() {
@@ -40,14 +40,19 @@ const Fonts = ({searchValue, customText, fontSizeValue, mode}) => {
       </div>
     </div>
   ))
-  
-  return(
+
+  if (fonts){
+    return(
     <React.Fragment>
       <section  className="font-card-main-container">
         {Object.values(displayFonts)}
       </section>
     </React.Fragment>
   )
+  } else{
+    <h1>Loading ...</h1>
+  }
+  
 }
 
 export default Fonts;

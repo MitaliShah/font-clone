@@ -2,10 +2,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #282828;
+}
+
+.header-nav{
+  display: none;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  color: #282828;
 }
 
 body, .root{
-  max-width: 100%;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -21,30 +32,7 @@ fieldset {
 
 /**Header**/
 
-header {
-  border-bottom: 1px solid lightgrey;
-  display: flex;
-  justify-content: space-between;
-}
-
-.header-nav,
-.header-nav-ul {
-  display: flex;
-  color: rgb(107, 107, 107);
-  font-weight: bolder;
-  align-items: center;
-  list-style-type: none;
-  justify-content: space-between;
-}
-
-.header-nav-ul li a {
-  color: rgb(107, 107, 107);
-  text-decoration: none;
-  padding: 0.8em 0.8em;
-  cursor: pointer;
-}
-
-.header-nav-ul li:first-child a {
+.logo{
   color: #006699;
 }
 
@@ -54,26 +42,24 @@ main {
   margin: 1.5em auto;
 }
 
-input[type="text"] {
-  border: none;
-  border-right: 1px solid grey;
-  margin: 12px;
-  text-align: center;
-  flex: 2;
+#searchValue, #customText {
+  border-bottom: 1px solid #006699;
 }
 
+
+form {
+  text-align: center;
+}
+
+input:focus,
+input[type="text"],
 select {
+  outline: none;
   border: none;
   padding: 15px;
   -webkit-appearance: none;
   text-align: center;
-  flex: 1;
   color: grey;
-}
-
-input:focus,
-select {
-  outline: none;
 }
 
 /**font-card**/
@@ -114,11 +100,11 @@ select {
 .font-preview {
   display: flex;
   padding-top: 2em;
-  font-size: 2em;  
+  font-size: 2em;
 }
 
 .customText {
-  white-space: wrap; 
+  white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis; 
   place-items: center;
@@ -128,35 +114,53 @@ select {
 
 form{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   max-width: 500px;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 600px) {
-  .header-nav{
-    display: none;
-  }
+@media only screen and (min-width: 768px) {
 
-  header{
-    text-align: center;
-  }
+  header {
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
+} 
 
-  form{
-    display: flex;
-    flex-wrap: wrap;    
-  }
+.header-nav,
+.header-nav-ul {
+  display: flex;
+  color: rgb(107, 107, 107);
+  font-weight: bolder;
+  align-items: center;
+  list-style-type: none;
+  justify-content: space-between;
+}
 
-  input[type="text"] {
-    border: none;
-  }
+.header-nav-ul li a {
+  color: rgb(107, 107, 107);
+  text-decoration: none;
+  padding: 0.8em 0.8em;
+  cursor: pointer;
+}
 
-  #customText{
-    border-top:1px solid grey;
-    padding-top: 5px;
-  }
+.header-nav-ul li:first-child a {
+  color: #006699;
+}
 
-  select{
-    border-top: 1px solid grey;
-  }
+form{
+  display: flex;
+  flex-direction: row;
+  border: none;
+  padding-top: 6px;
+}
+input[type="text"]{
+  border-right: 1px solid #006699;  
+}
+
+#searchValue, #customText {
+  border-bottom: none;
+}
+
 }
