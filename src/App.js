@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import Fonts from "./composition/Fonts";
 import Header from "./composition/Header";
+import Footer from "./composition/Footer";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
               onChange={handleChange}
               value={formData.searchValue}
               placeholder="Search"
+              alt=""
             />
           </label>
           <label htmlFor="customText">
@@ -43,6 +45,7 @@ function App() {
               onChange={handleChange}
               value={formData.customText}
               placeholder="Custom Text"
+              alt=""
             />
           </label>
           <label htmlFor="fontSizeValue">
@@ -51,6 +54,7 @@ function App() {
               name="fontSizeValue"
               onChange={handleChange}
               value={formData.fontSizeValue}
+              alt=""
             >
               <option value="">-- Select Font Size --</option>
               <option value="20">20px</option>
@@ -59,14 +63,14 @@ function App() {
               <option value="40">40px</option>
             </select>
           </label>
-        </form>      
-      
+        </form>
       <Fonts 
         searchValue={formData.searchValue} 
         customText={formData.customText} 
         fontSizeValue={formData.fontSizeValue}
       />
       </main>
+      <Footer />
     </React.Fragment>
   )
 }

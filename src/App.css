@@ -46,6 +46,7 @@ main {
   border-bottom: 1px solid #006699;
 }
 
+select { width: px; text-align-last:center; }
 
 form {
   text-align: center;
@@ -55,11 +56,11 @@ input:focus,
 input[type="text"],
 select {
   outline: none;
-  border: none;
+  border: none; 
   padding: 15px;
   -webkit-appearance: none;
   text-align: center;
-  color: grey;
+  color: #696969;
 }
 
 /**font-card**/
@@ -75,10 +76,10 @@ select {
 .font-card {
   display: inline-block;
   position: relative;
-  height: 300px;
   width: 300px;
   margin: 0 15px;
   border-top: 1px solid black;
+  height: inherit;
 }
 
 .font-card-info {
@@ -99,15 +100,8 @@ select {
 
 .font-preview {
   display: flex;
-  padding-top: 2em;
+  padding: 2em 0;
   font-size: 2em;
-}
-
-.customText {
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  place-items: center;
 }
 
 /*Form*/
@@ -119,6 +113,13 @@ form{
   max-width: 500px;
   margin: 0 auto;
 }
+
+/* Footer */
+.footer p{
+  text-align: center;
+  color: #006699;
+}
+
 
 @media only screen and (min-width: 768px) {
 

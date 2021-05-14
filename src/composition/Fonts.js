@@ -26,7 +26,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
     <div key={font.family} className="font-card">
       <div className="font-card-info">
         <h1 className="font-title">{font.family}</h1>
-        <button className="plus-icon">
+        <button className="plus-icon" aria-label="My button">
           <i className="fas fa-plus-circle"></i>
         </button>
       </div>

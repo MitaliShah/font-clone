@@ -4,7 +4,7 @@ const Header =  () => {
   return (
     <React.Fragment>
       <header>
-          <h2><span className="logo">Google Font</span> Clone</h2>
+          <h1><span className="logo">Google Font</span> Clone</h1>
           <nav className="header-nav">
             <ul className="header-nav-ul">
               <li><a href="#">CATALOG</a></li>
