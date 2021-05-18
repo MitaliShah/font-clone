@@ -23,7 +23,7 @@ function App() {
 
   return(
     <React.Fragment>
-      <main>
+      <main id="main">
         <Header/>
         <form>
           <label htmlFor="search">
