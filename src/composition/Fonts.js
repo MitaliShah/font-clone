@@ -19,7 +19,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
   }, [URL]);
 
   // Filter fonts based on search
-  let filteredData  = fonts.filter((font) => font.family.toLowerCase().includes(searchValue.toLowerCase()))
+  const filteredData  = fonts.filter((font) => font.family.toLowerCase().includes(searchValue.toLowerCase()))
 
   // Render filtered fonts
   const displayFonts = filteredData.map((font) => (
