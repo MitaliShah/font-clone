@@ -4,7 +4,10 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
   const [fonts, setFonts] = useState([]);
 
-  const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}`;
+  let sortBy = 'sort=popularity';
+  
+  const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}&${sortBy}`;
+
 
   // Load fonts from the google font API
   
