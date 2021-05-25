@@ -5,9 +5,8 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
   const [fonts, setFonts] = useState([]);
 
   let sortBy = 'sort=popularity';
-  
-  const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}&${sortBy}`;
 
+  const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}&${sortBy}`;
 
   // Load fonts from the google font API
   
@@ -26,6 +25,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
   // Render filtered fonts
   const displayFonts = filteredData.map((font) => (
+
     <div key={font.family} className="font-card">
       <div className="font-card-info">
         <h1 className="font-title">{font.family}</h1>
@@ -39,7 +39,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
       </div>
 
       <div className="font-preview">
-        <p style={{fontSize: `${fontSizeValue}px`}} className="customText">{customText ? customText : "Then come the night of the first falling star."}</p>
+        <p style={{fontSize: `${fontSizeValue}px`, fontFamily: `${font.family}`}} className="customText">{customText ? customText : "Then come the night of the first falling star."}</p>
       </div>
     </div>
   ))

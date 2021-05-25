@@ -1,10 +1,10 @@
 # Google Font Clone
 
-- [link to Demo](https://font-clone.herokuapp.com/)
+- [Link to demo](https://font-clone.herokuapp.com/)
 
 # About the project
 
-- Coming soon...
+- A react app that displays fonts to users sorted by popularity fetched from google fonts developer API.
 # Built using creact-react-app
 
 - HTML
