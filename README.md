@@ -14,6 +14,10 @@
 - React-DOM
 - React Hooks
 
+# APIs
+
+- Google Font Developer API
+
 # Project Requirements
 - Text typed into the custom text (type something) box should immediately change the sample text displayed in each font card.
 - The sample text should return to the default sample if the input box (type something) no longer has any input (ex. input == "")

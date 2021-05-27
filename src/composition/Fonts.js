@@ -18,9 +18,18 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
       const fontsFromAPI = await response.json();
       setFonts(fontsFromAPI.items);
     }
-    
+    // Import fonts into index.html
+    fonts.forEach((font) => {
+      const formattedName = font.family.replace(/\s+/g, '+');
+      const defaultVariant = (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = `https://fonts.googleapis.com/css?family=${formattedName}${defaultVariant}&display=swap`;
+      document.head.appendChild(link);
+    });
+
     loadFonts();
-  }, [URL]);
+  }, [URL,fonts]);
 
   // Filter fonts based on search
   const filteredData  = fonts.filter((font) => font.family.toLowerCase().includes(searchValue.toLowerCase()))
@@ -41,7 +50,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
       </div>
 
       <div className="font-preview">
-        <p style={{fontSize: `${fontSizeValue}px`, fontFamily: `${font.family}`}} className="customText">{customText ? customText : "Then come the night of the first falling star."}</p>
+        <p style={{fontSize: `${fontSizeValue}px`, fontFamily: `${font.family}, sans-serif`}} className="customText">{customText ? customText : "Then come the night of the first falling star."}</p>
       </div>
     </div>
   ))
@@ -52,7 +61,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
       <CountFonts fontlength={fontlength}  />
       <section  className="font-card-main-container">      
         {Object.values(displayFonts)}
-      </section>
+      </section>      
     </React.Fragment>
   )
   } else{
