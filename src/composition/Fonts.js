@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
-import CountFonts from "./CountFonts"
+// import CountFonts from "./CountFonts"
+
+const CountFonts = React.lazy(()=> import ("./CountFonts"))
 
 const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
@@ -18,15 +20,18 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
       const fontsFromAPI = await response.json();
       setFonts(fontsFromAPI.items);
     }
-    // Import fonts into index.html
-    fonts.forEach((font) => {
-      const formattedName = font.family.replace(/\s+/g, '+');
-      const defaultVariant = (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
-      const link = document.createElement('link');
+    
+    async function fontFamilies () {
+    await fonts.map((font) => {
+      const formatName =  font.family.replace(/\s+/g, '+');
+      const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
+      const link =  document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = `https://fonts.googleapis.com/css?family=${formattedName}${defaultVariant}&display=swap`;
-      document.head.appendChild(link);
+      link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap`;
+      return document.head.appendChild(link);
     });
+    }
+    fontFamilies();
 
     loadFonts();
   }, [URL,fonts]);
@@ -58,10 +63,13 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
   if (fonts){
     return(
     <React.Fragment>
+      <React.Suspense fallback={<p>Loading...</p>}>
       <CountFonts fontlength={fontlength}  />
-      <section  className="font-card-main-container">      
+      <section  className="font-card-main-container">
         {Object.values(displayFonts)}
-      </section>      
+      </section>
+      </React.Suspense>
+     
     </React.Fragment>
   )
   } else{
