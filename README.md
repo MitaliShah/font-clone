@@ -1,11 +1,11 @@
 # Google Font Clone
 
-- [Link to demo](https://font-clone.herokuapp.com/)
+- [Live Demo](https://font-clone.herokuapp.com/)
 
 # About the project
 
 - A react app that displays fonts to users sorted by popularity fetched from google fonts developer API.
-# Built using creact-react-app
+# Built with
 
 - HTML
 - CSS
@@ -14,7 +14,7 @@
 - React-DOM
 - React Hooks
 
-# Functionalities
+# Project Requirements
 - Text typed into the custom text (type something) box should immediately change the sample text displayed in each font card.
 - The sample text should return to the default sample if the input box (type something) no longer has any input (ex. input == "")
 - Font size chooser should have at least four sizes and should immediately change the sample text font size in each font card.

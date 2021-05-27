@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react"
+import CountFonts from "./CountFonts"
 
 const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
   const [fonts, setFonts] = useState([]);
-
   let sortBy = 'sort=popularity';
+
+  let fontlength = Object.keys(fonts).length
 
   const URL = `https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}&${sortBy}`;
 
@@ -47,7 +49,8 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
   if (fonts){
     return(
     <React.Fragment>
-      <section  className="font-card-main-container">
+      <CountFonts fontlength={fontlength}  />
+      <section  className="font-card-main-container">      
         {Object.values(displayFonts)}
       </section>
     </React.Fragment>

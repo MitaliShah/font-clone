@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.Fragment>
-    <App />
+    <App /> 
   </React.Fragment>,
   document.getElementById('root')
 );

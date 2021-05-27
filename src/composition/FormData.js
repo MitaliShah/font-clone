@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import Fonts from "./Fonts";
 
 function FormData () {
-
   const initialFormState = {
     searchValue: "",
     customText: "",
@@ -58,6 +57,7 @@ function FormData () {
               <option value="40">40px</option>
             </select>
           </label>
+        
         </form>
       <Fonts 
         searchValue={formData.searchValue} 
