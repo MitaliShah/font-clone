@@ -18,6 +18,10 @@ function FormData () {
     });
   };
 
+  const handleClick = () => {
+    setFormData(initialFormState);
+  }
+
   return (
     <React.Fragment>
       <form>
@@ -58,6 +62,7 @@ function FormData () {
               <option value="40">40px</option>
             </select>
           </label>
+          <button onClick={() => handleClick()}>Reset</button>
         
         </form>
         <LazyLoad>
