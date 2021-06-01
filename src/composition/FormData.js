@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-// import Fonts from "./Fonts";
-
-const Fonts = React.lazy(()=> import ("./Fonts"))
+import Fonts from "./Fonts";
+import LazyLoad from 'react-lazyload';
 
 function FormData () {
   const initialFormState = {
@@ -61,14 +60,13 @@ function FormData () {
           </label>
         
         </form>
-        <React.Suspense fallback={<p>Loading</p>}>
+        <LazyLoad>
           <Fonts 
           searchValue={formData.searchValue} 
           customText={formData.customText} 
           fontSizeValue={formData.fontSizeValue}
           />
-        </React.Suspense>
-      
+        </LazyLoad>
     </React.Fragment>
   )
 

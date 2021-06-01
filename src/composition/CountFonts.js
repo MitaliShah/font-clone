@@ -1,9 +1,12 @@
 import React from "react"
 
-const CountFonts = ({fontlength}) => {
+const CountFonts = ({filteredData}) => {
+
+  let fontlength = Object.keys(filteredData).length
+
   return (
     <div>
-      <h3><span style={{color: "orange"}}>{fontlength}</span> of {fontlength} font families</h3>
+      <p><span style={{color: "#866B65"}}>{fontlength}</span> of {fontlength} font families</p>
     </div>
   )
 }
