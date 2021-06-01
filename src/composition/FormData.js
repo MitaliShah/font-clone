@@ -3,10 +3,11 @@ import Fonts from "./Fonts";
 import LazyLoad from 'react-lazyload';
 
 function FormData () {
+
   const initialFormState = {
     searchValue: "",
     customText: "",
-    fontSizeValue: "32",
+    fontSizeValue: "32"
   };
 
   const [formData, setFormData] = useState({...initialFormState})
@@ -17,10 +18,6 @@ function FormData () {
       [target.name]: target.value,
     });
   };
-
-  const handleClick = () => {
-    setFormData(initialFormState);
-  }
 
   return (
     <React.Fragment>
@@ -62,8 +59,10 @@ function FormData () {
               <option value="40">40px</option>
             </select>
           </label>
-          <button onClick={() => handleClick()}>Reset</button>
-        
+          <button onClick={(e) => {
+            e.preventDefault()
+            setFormData(initialFormState)
+          }}>Reset</button>
         </form>
         <LazyLoad>
           <Fonts 
