@@ -24,6 +24,7 @@
 - Font size dropdown to change font size on font cards.
 - "Custom Text" input box to customize text displayed on font cards.
 - Display font cards based on search.
+- Reset funcltionality
 
 
 

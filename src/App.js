@@ -2,7 +2,7 @@ import React from "react";
 import './App.css';
 import Header from "./composition/Header";
 import Footer from "./composition/Footer";
-import FormData from "./composition/FormData"
+import FormData from "./composition/FormData";
 
 function App() {
 

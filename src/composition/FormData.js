@@ -3,14 +3,15 @@ import Fonts from "./Fonts";
 import LazyLoad from 'react-lazyload';
 
 function FormData () {
-
+  
   const initialFormState = {
     searchValue: "",
     customText: "",
-    fontSizeValue: "32"
+    fontSizeValue: "32",
   };
 
   const [formData, setFormData] = useState({...initialFormState})
+  const [theme, setTheme] = useState("light");
 
   const handleChange = ({ target }) => {
     setFormData({
@@ -18,6 +19,13 @@ function FormData () {
       [target.name]: target.value,
     });
   };
+
+  const handleTheme = (e) => {
+    e.preventDefault()
+    setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
+    
+    theme === "light" ? (document.documentElement.className = "light-theme") : (document.documentElement.className = "dark-theme")
+  }
 
   return (
     <React.Fragment>
@@ -59,10 +67,11 @@ function FormData () {
               <option value="40">40px</option>
             </select>
           </label>
-          <button onClick={(e) => {
+          <button id="reset" onClick={(e) => {
             e.preventDefault()
             setFormData(initialFormState)
-          }}>Reset</button>
+          }}><i className="fas fa-redo"></i></button>
+          <button id="theme" onClick={handleTheme}>{theme === "light" ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}</button>
         </form>
         <LazyLoad>
           <Fonts 

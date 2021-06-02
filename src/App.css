@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #282828;
+  /* color: #282828; */
 }
 
 .header-nav{
@@ -135,7 +135,6 @@ form{
 
 
 @media only screen and (min-width: 768px) {
-
   header {
   border-bottom: 1px solid lightgrey;
   display: flex;

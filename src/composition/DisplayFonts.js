@@ -27,4 +27,5 @@ const DisplayFonts = ({filteredData, fontSizeValue, customText}) => {
   )
 }
 
-export default DisplayFonts;
+// export default DisplayFonts;
+export default React.memo(DisplayFonts);

@@ -29,7 +29,7 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
         const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
         const link =  document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap`;
+        link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap crossorigin`;
         return document.head.appendChild(link);
       });
     }    
