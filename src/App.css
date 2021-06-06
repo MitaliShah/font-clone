@@ -39,9 +39,8 @@ fieldset {
 /**Main**/
 
 main {
-  margin: 1.5em auto;
+  margin: 1em auto;
 }
-
 #searchValue, #customText {
   border-bottom: 1px solid #006699;
 }
@@ -132,7 +131,6 @@ form{
   background-color: whitesmoke;
   color: #333333;
 }
-
 
 @media only screen and (min-width: 768px) {
   header {

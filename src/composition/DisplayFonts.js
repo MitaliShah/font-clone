@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 // Render filtered fonts
 const DisplayFonts = ({filteredData, fontSizeValue, customText}) => {

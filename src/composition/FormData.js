@@ -23,7 +23,6 @@ function FormData () {
   const handleTheme = (e) => {
     e.preventDefault()
     setTheme(prevTheme => prevTheme === "light" ? "dark" : "light")
-    
     theme === "light" ? (document.documentElement.className = "light-theme") : (document.documentElement.className = "dark-theme")
   }
 

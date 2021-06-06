@@ -12,13 +12,27 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
   // Load fonts from the google font API
   useEffect(() => {
+
+    const abortController = new AbortController();
+
     async function loadFonts() {
-      const response = await fetch(URL);
-      const fontsFromAPI = await response.json();
-      setFonts(fontsFromAPI.items);
+      try {
+        const response = await fetch(URL, {signal: abortController.signal });
+        const fontsFromAPI = await response.json();
+        setFonts(fontsFromAPI.items);
+      } catch (error) {
+        if(error.name === "AbortError"){
+          // Ignore `AbortError`
+          console.log("Aborted", URL);
+        }else {
+          throw error;
+        }
+      }
     }
 
     loadFonts();
+
+    return () => abortController.abort();
   }, [URL]);
 
   // Load font families from fonts.googleapis.com
