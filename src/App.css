@@ -32,7 +32,7 @@ fieldset {
 
 /**Header**/
 
-.logo{
+.logo {
   color: #006699;
 }
 
@@ -64,8 +64,16 @@ select {
 
 #reset, #theme {
   border-radius: 2px;
-  padding: 10px;
+  padding: 6px 60px;
   background-color: #a4d3eb;
+  max-width: 40%;
+  margin: 0 auto;
+  font-weight: 800;
+  font-size: medium;
+}
+
+#reset {
+  margin-bottom: 5px;
 }
 
 /**font-card**/
@@ -182,6 +190,7 @@ input[type="text"]{
 
 #reset {
   margin-right: 5px;
+  margin-bottom: 0;
 }
 
 }
