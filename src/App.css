@@ -62,6 +62,12 @@ select {
   color: #696969;
 }
 
+#reset, #theme {
+  border-radius: 2px;
+  padding: 10px;
+  background-color: #a4d3eb;
+}
+
 /**font-card**/
 
 .font-card-main-container {
@@ -172,6 +178,10 @@ input[type="text"]{
 
 #searchValue, #customText {
   border-bottom: none;
+}
+
+#reset {
+  margin-right: 5px;
 }
 
 }
