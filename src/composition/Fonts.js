@@ -37,17 +37,31 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
   // Load font families from fonts.googleapis.com
   useEffect(() => {
+
+    const abortController = new AbortController();
+
       async function fontFamilies () {
-      await fonts.map((font) => {
-        const formatName =  font.family.replace(/\s+/g, '+');
-        const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
-        const link =  document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap crossorigin`;
-        return document.head.appendChild(link);
-      });
-    }    
+        try {
+          await fonts.map((font) => {
+            const formatName =  font.family.replace(/\s+/g, '+');
+            const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
+            const link =  document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap crossorigin`;
+            return document.head.appendChild(link);
+          });
+        } catch (error) {
+          if(error.name === "AbortError"){
+            // Ignore `AbortError`
+            console.log("Aborted", fonts);
+          }else {
+            throw error;
+          }
+        }
+      }
     fontFamilies();
+
+    return () => abortController.abort();
   }, [fonts]);
 
   // Filter fonts based on search
