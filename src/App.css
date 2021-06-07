@@ -69,11 +69,24 @@ select {
   max-width: 40%;
   margin: 0 auto;
   font-weight: 800;
-  font-size: medium;
+  font-size: 18px;
+  border: none;
+}
+
+#reset i, #theme i {
+  text-align: center;
 }
 
 #reset {
   margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+#countFonts {
+  text-align: center;
+  margin-top: 12px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
 }
 
 /**font-card**/
@@ -189,8 +202,7 @@ input[type="text"]{
 }
 
 #reset {
-  margin-right: 5px;
-  margin-bottom: 0;
+  margin: 0 5px;
 }
 
 }

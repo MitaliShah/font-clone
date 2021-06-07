@@ -5,6 +5,7 @@ const Header =  () => {
     <React.Fragment>
       <header>
           <h1 className="logo">Google Font Clone</h1>
+          
           <nav className="header-nav">
             <ul className="header-nav-ul">
               <li><a href="#main">CATALOG</a></li>
