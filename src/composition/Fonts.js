@@ -40,26 +40,47 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
     const abortController = new AbortController();
 
-      async function fontFamilies () {
-        try {
-          await fonts.map((font) => {
-            const formatName =  font.family.replace(/\s+/g, '+');
-            const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
-            const link =  document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap crossorigin`;
-            return document.head.appendChild(link);
-          });
-        } catch (error) {
-          if(error.name === "AbortError"){
-            // Ignore `AbortError`
-            console.log("Aborted", fonts);
-          }else {
-            throw error;
-          }
+    //   async function fontFamilies () {
+    //     try {
+    //       await fonts.map((font) => {
+    //         const formatName =  font.family.replace(/\s+/g, '+');
+    //         const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
+    //         const link =  document.createElement('link');
+    //         link.rel = 'stylesheet';
+    //         link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap crossorigin`;
+    //         return document.head.appendChild(link);
+    //       });
+    //     } catch (error) {
+    //       if(error.name === "AbortError"){
+    //         // Ignore `AbortError`
+    //         console.log("Aborted", fonts);
+    //       }else {
+    //         throw error;
+    //       }
+    //     }
+    //   }
+    // fontFamilies();
+
+    async function fontFamilies () {
+      try {
+        for (let font of fonts) {
+          const formatName =  font.family.replace(/\s+/g, '+');
+          const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
+          const link =  document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap crossorigin`;
+          return document.head.appendChild(link);
+        }
+      } catch (error) {
+        if(error.name === "AbortError"){
+          // Ignore `AbortError`
+          console.log("Aborted", fonts);
+        }else {
+          throw error;
         }
       }
-    fontFamilies();
+    }
+  fontFamilies();
 
     return () => abortController.abort();
   }, [fonts]);

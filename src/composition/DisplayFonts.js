@@ -5,7 +5,7 @@ const DisplayFonts = ({filteredData, fontSizeValue, customText}) => {
 
   return (
     <section  className="font-card-main-container">
-      {filteredData.map((font) => (    
+      {filteredData.map((font) => (
         <div key={font.family} className="font-card">
           <div className="font-card-info">
             <h1 className="font-title">{font.family}</h1>
