@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react"
 import CountFonts from "./CountFonts"
 import DisplayFonts from "./DisplayFonts"
-import LazyLoad from "react-lazyload";
 
 const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
@@ -42,9 +41,9 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
 
       async function fontFamilies () {
         try {
-          await fonts.map((font) => {
-            const formatName =  font.family.replace(/\s+/g, '+');
-            const defaultVariant =  (font.variants.includes('regular')) ? '' : `:${font.variants[0]}`;
+          await fonts.map(({family, variants}) => {
+            const formatName =  family.replace(/\s+/g, '+');
+            const defaultVariant =  (variants.includes('regular')) ? '' : `:${variants[0]}`;
             const link =  document.createElement('link');
             link.rel = 'stylesheet';
             link.href = `https://fonts.googleapis.com/css?family=${formatName}${defaultVariant}&display=swap crossorigin`;
@@ -52,7 +51,6 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
           });
         } catch (error) {
           if(error.name === "AbortError"){
-            // Ignore `AbortError`
             console.log("Aborted", fonts);
           }else {
             throw error;
@@ -72,13 +70,11 @@ const Fonts = ({searchValue, customText, fontSizeValue}) => {
     <React.Fragment>
       <CountFonts filteredData={filteredData} />
       <section  className="font-card-main-container">
-        <LazyLoad>
           <DisplayFonts 
             filteredData={filteredData} 
             fontSizeValue={fontSizeValue}
             customText={customText}
           />
-        </LazyLoad>
       </section>
     </React.Fragment>
   )

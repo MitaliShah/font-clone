@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Fonts from "./Fonts";
-import LazyLoad from 'react-lazyload';
 
 function FormData () {
   
@@ -72,13 +71,11 @@ function FormData () {
           }}><i className="fas fa-redo"></i></button>
           <button id="theme" onClick={handleTheme}>{theme === "light" ? <i className="fas fa-moon"></i> : <i className="fas fa-sun"></i>}</button>
         </form>
-        <LazyLoad>
           <Fonts 
           searchValue={formData.searchValue} 
           customText={formData.customText} 
           fontSizeValue={formData.fontSizeValue}
           />
-        </LazyLoad>
     </React.Fragment>
   )
 
