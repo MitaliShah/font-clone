@@ -1,6 +1,6 @@
 # Google Font Clone
 
-- [Live Link](https://font-clone.herokuapp.com/)
+- [Live Link](https://brilliant-daffodil-b31c43.netlify.app/)
 
 # About the project
 
