@@ -4,7 +4,7 @@
 
 # About the project
 
-- A react app that displays fonts to users sorted by popularity fetched from google fonts developer API. 
+This is a React application that is completely responsive and utilizes the Google Fonts Developer API to showcase fonts sorted by popularity. Users can search for specific fonts and view font cards, with the ability to input custom text to display on the cards. The application includes lazy-loading to improve performance, a font size dropdown to adjust the size of the font on the cards, and a reset function. It also features a toggle between dark and light mode, as well as the ability to switch between a grid and list layout. 
 
 # Built with
 
