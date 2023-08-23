@@ -2,10 +2,10 @@ import React from "react";
 
 // Render filtered fonts
 const DisplayFonts = ({filteredData, fontSizeValue, customText}) => {
-
+  const filter = filteredData.filter(font => !font.family.includes("Material Icons"));
   return (
     <section  className="font-card-main-container">
-      {filteredData.map((font) => (
+      {filter.map((font) => (     
         <div key={font.family} className="font-card">
           <div className="font-card-info">
             <h1 className="font-title">{font.family}</h1>
