@@ -27,7 +27,7 @@ function FormData () {
 
   return (
     <React.Fragment>
-      <form>
+      <form className="form">
           <label htmlFor="search">
             <input
               id="searchValue"
