@@ -68,7 +68,6 @@ select {
   padding: 0.7rem 2rem;
   /* -webkit-appearance: none; */
   text-align: center;
-  color: #696969;
   background: #006699;
   color: white;
 }
@@ -82,6 +81,7 @@ select {
   font-weight: 800;
   font-size: 18px;
   border: none;
+  color: #006699;
 }
 
 #reset i, #theme i {
